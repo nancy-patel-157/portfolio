@@ -12,6 +12,7 @@ import {
   Cpu,
   Smartphone,
   GraduationCap,
+  School,
   Award,
   ExternalLink,
   Trophy,
