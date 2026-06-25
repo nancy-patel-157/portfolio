@@ -364,24 +364,25 @@ function Skills() {
     {
       icon: Code2,
       title: "Languages",
-      items: ["Java", "Python", "C++", "SQL"],
-    },
-    {
-      icon: Smartphone,
-      title: "Web & Mobile",
-      items: ["Tailwind CSS", "JavaScript (ES6+)", "Django", "Flutter", "Dart", "HTML / CSS"],
-    },
-    {
-      icon: Cloud,
-      title: "Cloud & DevOps",
-      items: ["AWS S3", "CloudFront CDN", "Git", "GitHub Architecture"],
+      items: ["Python", "C++", "SQL", "JavaScript", "Dart", "HTML", "CSS"],
     },
     {
       icon: Cpu,
-      title: "AI & Automation",
-      items: ["AI Agents", "OpenAI GPT Integrations", "RPA"],
+      title: "Machine Learning",
+      items: ["Pandas", "NumPy", "Scikit-learn", "Model Evaluation", "Data Preprocessing", "Generative AI"],
+    },
+    {
+      icon: Cloud,
+      title: "Cloud & Databases",
+      items: ["AWS S3", "CloudFront", "AWS Services", "MySQL"],
+    },
+    {
+      icon: Smartphone,
+      title: "Tools & Core",
+      items: ["Git", "Linux", "VS Code", "Jupyter", "DSA", "OOP", "DBMS", "Flutter"],
     },
   ];
+
   return (
     <section id="skills" className="relative py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
