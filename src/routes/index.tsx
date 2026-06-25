@@ -421,48 +421,56 @@ function Skills() {
 function Projects() {
   const projects = [
     {
-      title: "AWS Global Hosting Deployment",
+      title: "AWS Static Hosting & CloudFront CDN",
       summary:
-        "Optimized static hosting on Amazon S3 with a CloudFront CDN layer — custom bucket policies, edge caching, and forced HTTP→HTTPS redirection to minimize global latency.",
+        "Globally optimized static hosting on Amazon S3 with CloudFront — edge caching, secure bucket policies, HTTPS redirection, and reduced global latency.",
       tags: ["AWS", "S3", "CloudFront", "CDN"],
       icon: Cloud,
     },
     {
-      title: "GSSoC '26 Frontend Contribution",
+      title: "Smart-Document-Insights",
       summary:
-        "Engineered a fully responsive 3-tier dark-themed Pricing Table component using Tailwind CSS for the Fork, Commit, Merge open-source ecosystem.",
-      tags: ["Open Source", "Tailwind", "React"],
+        "Python-based document analytics repository for workflow processing — automated parsing and structured insights from unstructured docs.",
+      tags: ["Python", "NLP", "Analytics"],
+      icon: Cpu,
+    },
+    {
+      title: "Customer Churn Prediction",
+      summary:
+        "End-to-end predictive ML pipeline with Flask integration for churn-risk analysis — feature engineering, model evaluation, and deployment.",
+      tags: ["ML", "Flask", "Scikit-learn"],
+      icon: Cpu,
+    },
+    {
+      title: "Student Score Predictor",
+      summary:
+        "Machine learning model evaluating and predicting academic performance with clean preprocessing and interpretability.",
+      tags: ["ML", "Pandas", "Regression"],
+      icon: Cpu,
+    },
+    {
+      title: "Multi-Domain Support Triage Agent",
+      summary:
+        "Terminal-based RAG automation system for intelligent log analysis and ticket triage across multiple support domains.",
+      tags: ["RAG", "LLM", "Automation"],
+      icon: Sparkles,
+    },
+    {
+      title: "Open Source Contribution — Pricing Table",
+      summary:
+        "Responsive dark-themed pricing table built with Tailwind CSS via the Fork, Commit, Merge workflow — PRs, reviews, and repo sync.",
+      tags: ["Open Source", "Tailwind", "Git"],
       icon: Rocket,
     },
     {
-      title: "Smart-Document-Insights",
+      title: "Cross-Platform Flutter Apps",
       summary:
-        "A specialized Python pipeline engineered for automated text parsing and intelligent document insights with structured outputs.",
-      tags: ["Python", "NLP", "Pipeline"],
-      icon: Cpu,
-    },
-    {
-      title: "Predictive ML Pipelines",
-      summary:
-        "Student Score Predictor and Customer Churn Prediction models built in Jupyter — feature engineering, evaluation, and clear interpretability.",
-      tags: ["ML", "Jupyter", "Scikit-Learn"],
-      icon: Cpu,
-    },
-    {
-      title: "Cross-Platform Mobile Utilities",
-      summary:
-        "Sleek mobile applications built with Flutter and Dart — clean layouts, smooth navigation, and reusable widgets.",
+        "Flutter applications including an Image Gallery App and a stateful profile-card system — reusable widgets and smooth navigation.",
       tags: ["Flutter", "Dart", "Mobile"],
       icon: Smartphone,
     },
-    {
-      title: "Open Source Footprint",
-      summary:
-        "Ongoing contributions to community-driven repos — issue triage, UI polish, and documentation improvements.",
-      tags: ["GitHub", "OSS", "Docs"],
-      icon: Github,
-    },
   ];
+
   return (
     <section id="projects" className="relative py-24 border-t border-border">
       <div className="mx-auto max-w-7xl px-6">
