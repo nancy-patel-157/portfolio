@@ -599,12 +599,15 @@ function Contact() {
           Drop a note — I usually reply within a day.
         </p>
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left">
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
           <ContactCard icon={<Mail className="h-4 w-4" />} label="Email" value="nainsipatel26@gmail.com" href="mailto:nainsipatel26@gmail.com" />
-          <ContactCard icon={<Github className="h-4 w-4" />} label="GitHub" value="nancy-patel-151" href="https://github.com/nancy-patel-151" />
+          <ContactCard icon={<Phone className="h-4 w-4" />} label="Phone" value="+91 8127988938" href="tel:+918127988938" />
+          <ContactCard icon={<Github className="h-4 w-4" />} label="GitHub" value="nancy-patel-157" href="https://github.com/nancy-patel-157" />
           <ContactCard icon={<Linkedin className="h-4 w-4" />} label="LinkedIn" value="nainsi-patel" href="https://linkedin.com/in/nainsi-patel" />
+          <ContactCard icon={<Code2 className="h-4 w-4" />} label="Portfolio" value="nancy-patel-157.github.io/portfolio" href="https://nancy-patel-157.github.io/portfolio" />
           <ContactCard icon={<Code2 className="h-4 w-4" />} label="Codolio" value="profile/Nainsi" href="https://codolio.com/profile/Nainsi" />
         </div>
+
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <a href="mailto:nainsipatel26@gmail.com" className="btn-primary">
