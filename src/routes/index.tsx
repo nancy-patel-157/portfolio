@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   Github,
@@ -16,6 +17,8 @@ import {
   Trophy,
   Rocket,
   BadgeCheck,
+  Download,
+  Star,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -78,36 +81,95 @@ function Nav() {
 }
 
 /* ---------------- HERO ---------------- */
+const ROLES = [
+  "Full-Stack Web Developer",
+  "Cloud & AI/ML Enthusiast",
+  "Open Source Contributor",
+  "B.Tech CSE @ KIET",
+];
+
+function useRotatingRole(items: string[], interval = 2400) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setI((p) => (p + 1) % items.length), interval);
+    return () => clearInterval(id);
+  }, [items, interval]);
+  return { index: i, value: items[i] };
+}
+
 function Hero() {
+  const role = useRotatingRole(ROLES);
+  const orbit = [
+    { label: "React", icon: Code2, deg: 0 },
+    { label: "AWS", icon: Cloud, deg: 60 },
+    { label: "Python", icon: Cpu, deg: 120 },
+    { label: "Django", icon: Rocket, deg: 180 },
+    { label: "Flutter", icon: Smartphone, deg: 240 },
+    { label: "AI", icon: Sparkles, deg: 300 },
+  ];
+  const marquee = [
+    "React", "Tailwind", "TypeScript", "Django", "Python", "Java", "C++", "AWS S3",
+    "CloudFront", "Flutter", "Dart", "Git", "OpenAI", "RPA", "SQL",
+  ];
+
   return (
     <section id="home" className="relative overflow-hidden">
-      <div className="absolute inset-0 grid-bg pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-6 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
-        <div className="min-w-0">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-[var(--surface)]/60 px-3 py-1 text-xs text-muted-foreground">
-            <span className="h-2 w-2 rounded-full bg-[var(--emerald-accent)] animate-pulse" />
+      {/* Aurora orbs */}
+      <div aria-hidden className="absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-40 bg-[radial-gradient(circle_at_center,var(--cyan-accent),transparent_60%)] animate-orb" />
+      <div aria-hidden className="absolute -bottom-32 -right-20 h-[480px] w-[480px] rounded-full blur-3xl opacity-30 bg-[radial-gradient(circle_at_center,var(--emerald-accent),transparent_60%)] animate-orb" style={{ animationDelay: "-6s" }} />
+      <div aria-hidden className="absolute inset-0 grid-bg pointer-events-none" />
+      <div aria-hidden className="absolute inset-0 noise opacity-[0.06] pointer-events-none" />
+
+      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-10 md:pt-24 md:pb-16 grid lg:grid-cols-[1.15fr_1fr] gap-12 items-center">
+        {/* LEFT */}
+        <div className="min-w-0 animate-rotate-in">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-[var(--surface)]/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--emerald-accent)] opacity-75 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--emerald-accent)]" />
+            </span>
             Available for collaborations & internships
           </div>
-          <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05]">
-            Hi, I'm <span className="text-gradient">Nainsi</span>
+
+          <h1 className="mt-6 font-display text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02]">
+            Hi, I'm <span className="text-gradient-anim">Nainsi</span>
+            <span className="inline-block ml-1 h-[0.9em] w-[3px] translate-y-2 bg-[var(--cyan-accent)] animate-pulse align-middle" />
           </h1>
-          <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl">
-            B.Tech Computer Science Student · Full-Stack Web Developer ·{" "}
-            <span className="text-foreground">Cloud & AI/ML Enthusiast</span>
+
+          {/* Rotating role */}
+          <div className="mt-5 flex items-center gap-3 text-base md:text-lg">
+            <span className="font-mono text-[var(--cyan-accent)]">{">"}</span>
+            <span className="text-muted-foreground">I build as a</span>
+            <span key={role.index} className="font-semibold text-foreground animate-rotate-in">
+              {role.value}
+            </span>
+          </div>
+
+          <p className="mt-5 max-w-xl text-muted-foreground leading-relaxed">
+            Crafting scalable full-stack experiences with React, Django, and AWS — and exploring
+            the next wave of intelligent automation with AI agents.
           </p>
 
-          <div className="mt-6 flex items-start gap-3 rounded-2xl border border-border bg-[var(--surface)]/60 p-4">
-            <BadgeCheck className="h-5 w-5 shrink-0 text-[var(--emerald-accent)] mt-0.5" />
-            <p className="text-sm">
-              Selected Contributor for{" "}
-              <span className="font-semibold text-foreground">GirlScript Summer of Code (GSSoC) 2026</span>{" "}
-              — <span className="text-muted-foreground">Open Source & AI Agents Tracks.</span>
-            </p>
+          {/* GSSoC highlight */}
+          <div className="mt-6 relative rounded-2xl p-[1px] bg-gradient-to-r from-[var(--cyan-accent)]/60 via-transparent to-[var(--emerald-accent)]/60">
+            <div className="flex items-start gap-3 rounded-2xl bg-[var(--surface)]/80 backdrop-blur p-4">
+              <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[var(--cyan-accent)]/20 to-[var(--emerald-accent)]/20 border border-border">
+                <Star className="h-4 w-4 text-[var(--emerald-accent)]" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-[11px] font-mono uppercase tracking-wider text-[var(--cyan-accent)]">Featured</div>
+                <p className="mt-0.5 text-sm">
+                  <span className="font-semibold text-foreground">GSSoC 2026 Contributor</span>
+                  <span className="text-muted-foreground"> — Open Source & AI Agents Tracks.</span>
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#projects" className="btn-primary">
-              Explore My Work <ArrowRight className="h-4 w-4" />
+            <a href="#projects" className="btn-primary group">
+              Explore My Work
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="https://linkedin.com/in/nainsi-patel"
@@ -115,55 +177,91 @@ function Hero() {
               rel="noreferrer"
               className="btn-ghost"
             >
-              Let's Connect <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-4 w-4" /> Let's Connect
             </a>
+            <a href="mailto:nainsipatel26@gmail.com" className="btn-ghost">
+              <Download className="h-4 w-4" /> Resume
+            </a>
+          </div>
+
+          {/* Stat strip */}
+          <div className="mt-10 grid grid-cols-3 max-w-md divide-x divide-border rounded-2xl border border-border bg-[var(--surface)]/50 backdrop-blur">
+            {[
+              { v: "15+", l: "Projects" },
+              { v: "6+", l: "Certifications" },
+              { v: "4+", l: "Hackathons" },
+            ].map((s) => (
+              <div key={s.l} className="p-4 text-center">
+                <div className="font-display text-2xl font-bold text-gradient">{s.v}</div>
+                <div className="mt-0.5 text-[11px] uppercase tracking-wider text-muted-foreground">{s.l}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Right visual */}
-        <div className="relative">
-          <div className="relative mx-auto aspect-square max-w-md rounded-3xl card-surface p-6 overflow-hidden">
-            <div className="absolute inset-0 opacity-30 grid-bg" />
-            <div className="relative h-full w-full rounded-2xl border border-border bg-[var(--background)]/60 p-5 font-mono text-xs leading-relaxed overflow-hidden">
-              <div className="flex gap-1.5 mb-3">
-                <span className="h-3 w-3 rounded-full bg-red-500/70" />
-                <span className="h-3 w-3 rounded-full bg-yellow-500/70" />
-                <span className="h-3 w-3 rounded-full bg-green-500/70" />
-                <span className="ml-2 text-muted-foreground">nainsi.ts</span>
-              </div>
-              <pre className="text-muted-foreground whitespace-pre-wrap">
-<span className="text-[var(--cyan-accent)]">const</span> <span className="text-foreground">nainsi</span> = {"{"}
-{"\n  "}name: <span className="text-[var(--emerald-accent)]">'Nainsi Patel'</span>,
-{"\n  "}role: <span className="text-[var(--emerald-accent)]">'Full-Stack Developer'</span>,
-{"\n  "}stack: [<span className="text-[var(--emerald-accent)]">'React'</span>, <span className="text-[var(--emerald-accent)]">'Django'</span>,
-{"\n          "}<span className="text-[var(--emerald-accent)]">'AWS'</span>, <span className="text-[var(--emerald-accent)]">'Python'</span>],
-{"\n  "}focus: <span className="text-[var(--emerald-accent)]">'Cloud + AI Agents'</span>,
-{"\n  "}open_source: <span className="text-[var(--cyan-accent)]">true</span>,
-{"\n  "}location: <span className="text-[var(--emerald-accent)]">'Delhi-NCR, India'</span>,
-{"\n"}{"}"};
-              </pre>
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] text-muted-foreground">
-                <span>// always building.</span>
-                <span className="text-[var(--cyan-accent)]">▍</span>
-              </div>
+        {/* RIGHT — orbit visual */}
+        <div className="relative mx-auto w-full max-w-[460px] aspect-square">
+          {/* Outer rings */}
+          <div className="absolute inset-0 rounded-full border border-border/70" />
+          <div className="absolute inset-[10%] rounded-full border border-border/50" />
+          <div className="absolute inset-[22%] rounded-full border border-border/40" />
+
+          {/* Glow behind avatar */}
+          <div className="absolute inset-[28%] rounded-full bg-[radial-gradient(circle_at_center,color-mix(in_oklab,var(--cyan-accent)_55%,transparent),transparent_70%)] blur-2xl" />
+
+          {/* Avatar core */}
+          <div className="absolute inset-[28%] rounded-full overflow-hidden border border-border bg-[var(--surface)] grid place-items-center animate-float">
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--cyan-accent)]/20 via-transparent to-[var(--emerald-accent)]/25" />
+            <div className="relative font-display text-6xl font-bold text-gradient-anim select-none">N</div>
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[var(--background)]/80 border border-border text-[10px] font-mono text-muted-foreground">
+              nainsi.dev
             </div>
           </div>
-          {/* Floating chips */}
-          <FloatingChip className="-top-3 left-6" icon={<Code2 className="h-3.5 w-3.5" />} label="React" />
-          <FloatingChip className="top-1/3 -right-4" icon={<Cloud className="h-3.5 w-3.5" />} label="AWS" />
-          <FloatingChip className="bottom-4 left-2" icon={<Cpu className="h-3.5 w-3.5" />} label="AI/ML" />
+
+          {/* Orbiting badges */}
+          <div className="absolute inset-0 animate-spin-slow">
+            {orbit.map((o) => (
+              <div
+                key={o.label}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                style={{ transform: `translate(-50%,-50%) rotate(${o.deg}deg) translateY(calc(-50% - 5rem))` }}
+              >
+                <div className="animate-spin-reverse">
+                  <div className="flex items-center gap-1.5 rounded-full border border-border bg-[var(--surface)]/90 backdrop-blur px-2.5 py-1 text-[11px] shadow-lg">
+                    <o.icon className="h-3.5 w-3.5 text-[var(--cyan-accent)]" />
+                    <span className="font-mono">{o.label}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Corner status card */}
+          <div className="hidden md:flex absolute -bottom-2 -left-2 items-center gap-2 rounded-xl border border-border bg-[var(--surface)]/90 backdrop-blur px-3 py-2 text-xs shadow-xl">
+            <span className="h-2 w-2 rounded-full bg-[var(--emerald-accent)] animate-pulse" />
+            <span className="font-mono text-muted-foreground">deploying to</span>
+            <span className="font-semibold">AWS</span>
+          </div>
+          <div className="hidden md:flex absolute -top-2 -right-2 items-center gap-2 rounded-xl border border-border bg-[var(--surface)]/90 backdrop-blur px-3 py-2 text-xs shadow-xl">
+            <Github className="h-3.5 w-3.5 text-[var(--cyan-accent)]" />
+            <span className="font-mono">commits +1.2k</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Marquee tech strip */}
+      <div className="relative border-y border-border bg-[var(--surface)]/40 backdrop-blur">
+        <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+          <div className="flex gap-10 py-4 w-max animate-marquee">
+            {[...marquee, ...marquee].map((t, i) => (
+              <span key={i} className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.18em] text-muted-foreground">
+                <span className="h-1 w-1 rounded-full bg-[var(--cyan-accent)]" /> {t}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function FloatingChip({ className, icon, label }: { className?: string; icon: React.ReactNode; label: string }) {
-  return (
-    <div className={`absolute hidden md:flex items-center gap-1.5 rounded-full border border-border bg-[var(--surface)]/90 backdrop-blur px-3 py-1.5 text-xs shadow-lg ${className ?? ""}`}>
-      <span className="text-[var(--cyan-accent)]">{icon}</span>
-      {label}
-    </div>
   );
 }
 
