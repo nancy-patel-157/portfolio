@@ -19,7 +19,6 @@ import {
   Rocket,
   BadgeCheck,
   Download,
-  Star,
   Briefcase,
   Phone,
 } from "lucide-react";
@@ -158,22 +157,6 @@ function Hero() {
             the next wave of intelligent automation with AI agents.
           </p>
 
-          {/* GSSoC highlight */}
-          <div className="mt-6 relative rounded-2xl p-[1px] bg-gradient-to-r from-[var(--cyan-accent)]/60 via-transparent to-[var(--emerald-accent)]/60">
-            <div className="flex items-start gap-3 rounded-2xl bg-[var(--surface)]/80 backdrop-blur p-4">
-              <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-[var(--cyan-accent)]/20 to-[var(--emerald-accent)]/20 border border-border">
-                <Star className="h-4 w-4 text-[var(--emerald-accent)]" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-[11px] font-mono uppercase tracking-wider text-[var(--cyan-accent)]">Featured</div>
-                <p className="mt-0.5 text-sm">
-                  <span className="font-semibold text-foreground">GSSoC 2026 Contributor</span>
-                  <span className="text-muted-foreground"> — Open Source & AI Agents Tracks.</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#projects" className="btn-primary group">
               Explore My Work
@@ -192,19 +175,6 @@ function Hero() {
             </a>
           </div>
 
-          {/* Stat strip */}
-          <div className="mt-10 grid grid-cols-3 max-w-md divide-x divide-border rounded-2xl border border-border bg-[var(--surface)]/50 backdrop-blur">
-            {[
-              { v: "15+", l: "Projects" },
-              { v: "6+", l: "Certifications" },
-              { v: "4+", l: "Hackathons" },
-            ].map((s) => (
-              <div key={s.l} className="p-4 text-center">
-                <div className="font-display text-2xl font-bold text-gradient">{s.v}</div>
-                <div className="mt-0.5 text-[11px] uppercase tracking-wider text-muted-foreground">{s.l}</div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* RIGHT — orbit visual */}
