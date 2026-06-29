@@ -677,7 +677,7 @@ function Contact() {
 
 function ContactCard({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href: string }) {
   return (
-    <a href={href} target="_blank" rel="noreferrer" className="card-surface card-surface-hover p-4 flex items-center gap-3">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="card-surface card-surface-hover p-4 flex items-center gap-3">
       <div className="grid h-9 w-9 place-items-center rounded-lg bg-[var(--background)]/60 border border-border text-[var(--cyan-accent)]">
         {icon}
       </div>
