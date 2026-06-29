@@ -36,13 +36,7 @@ jobs:
 
       - name: Add SPA fallback (404.html)
         run: |
-          if [ -d "dist" ]; then OUT=dist; \
-          elif [ -d "build/client" ]; then OUT=build/client; \
-          elif [ -d ".output/public" ]; then OUT=.output/public; \
-          else OUT=$(find . -maxdepth 3 -type d -name "client" | head -n1); fi
-          echo "Publishing $OUT"
-          cp "$OUT/index.html" "$OUT/404.html" || true
-          echo "$OUT" > .publish-dir
+          if [ -f "dist/index.html" ]; then cp dist/index.html dist/404.html; fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -50,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ hashFiles('.publish-dir') && '' || 'dist' }}
+          path: dist
 
   deploy:
     needs: build
