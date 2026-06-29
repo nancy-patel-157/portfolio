@@ -662,7 +662,7 @@ function Contact() {
           <a href="mailto:nainsipatel26@gmail.com" className="btn-primary">
             <Mail className="h-4 w-4" /> Email Me
           </a>
-          <a href="https://linkedin.com/in/nainsi-patel" target="_blank" rel="noreferrer" className="btn-ghost">
+          <a href="https://www.linkedin.com/in/nainsi-patel" target="_blank" rel="noopener noreferrer" className="btn-ghost">
             <Linkedin className="h-4 w-4" /> Connect on LinkedIn
           </a>
         </div>
