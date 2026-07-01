@@ -496,7 +496,7 @@ function Projects() {
         "End-to-end predictive ML pipeline with Flask integration for churn-risk analysis — feature engineering, model evaluation, and deployment.",
       tags: ["ML", "Flask", "Scikit-learn"],
       icon: Cpu,
-      sourceUrl: "https://github.com/nancy-patel-157",
+      sourceUrl: "https://github.com/nancy-patel-157/churn-project",
     },
     {
       title: "Student Score Predictor",
@@ -504,15 +504,15 @@ function Projects() {
         "Machine learning model evaluating and predicting academic performance with clean preprocessing and interpretability.",
       tags: ["ML", "Pandas", "Regression"],
       icon: Cpu,
-      sourceUrl: "https://github.com/nancy-patel-157",
+      sourceUrl: "https://github.com/nancy-patel-157/student-score-predictor",
     },
     {
-      title: "Open Source Contribution — Pricing Table",
+      title: "Open Source Contribution — Fork, Commit, Merge",
       summary:
         "Responsive dark-themed pricing table built with Tailwind CSS via the Fork, Commit, Merge workflow — PRs, reviews, and repo sync.",
       tags: ["Open Source", "Tailwind", "Git"],
       icon: Rocket,
-      sourceUrl: "https://github.com/nancy-patel-157",
+      sourceUrl: "https://github.com/nancy-patel-157/fork-commit-merge",
     },
     {
       title: "Cross-Platform Flutter Apps",
@@ -520,7 +520,7 @@ function Projects() {
         "Flutter applications including an Image Gallery App and a stateful profile-card system — reusable widgets and smooth navigation.",
       tags: ["Flutter", "Dart", "Mobile"],
       icon: Smartphone,
-      sourceUrl: "https://github.com/nancy-patel-157",
+      sourceUrl: "https://github.com/nancy-patel-157/ImageGallery_Using_Flutter",
     },
   ];
 
@@ -546,7 +546,7 @@ function Projects() {
                 <a
                   href={p.sourceUrl || "https://github.com/nancy-patel-157"}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-[var(--cyan-accent)] transition-colors"
                   aria-label="View source"
                 >
@@ -565,7 +565,7 @@ function Projects() {
               <a
                 href={p.sourceUrl || "https://github.com/nancy-patel-157"}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center gap-1.5 text-sm text-[var(--cyan-accent)] hover:gap-2.5 transition-all"
               >
                 View source <ArrowRight className="h-3.5 w-3.5" />
