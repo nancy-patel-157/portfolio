@@ -563,7 +563,7 @@ function Projects() {
                 ))}
               </div>
               <a
-                href="https://github.com/nancy-patel-157"
+                href={p.sourceUrl || "https://github.com/nancy-patel-157"}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-flex items-center gap-1.5 text-sm text-[var(--cyan-accent)] hover:gap-2.5 transition-all"
