@@ -582,12 +582,16 @@ function Projects() {
 /* ---------------- ACHIEVEMENTS ---------------- */
 function Achievements() {
   const certs = [
-    "AWS Certified Data Engineer",
-    "AWS AI & ML Scholars — Challenge Completion",
-    "ECMAScript ES6 JavaScript",
-    "MySQL — Oracle Academy Certified",
-    "Dart Programming Training",
-    "Learning Django Web Development",
+    "AWS AI & ML Scholars — 2026 Challenge Completion (United Latino Students Association / Udacity)",
+    "Infosys Springboard Virtual Internship 7.0 — Next-Gen AI & Machine Learning Track (Deep Learning, GPT-3, GANs)",
+    "Artificial Intelligence & Principles of Generative AI Certifications (Infosys Springboard)",
+    "AWS Certified Cloud Practitioner",
+    "Network Technician Career Path — Cisco Networking Academy",
+    "MEPro English Proficiency Level 9 Certification — ETS (Professional Communication)",
+    "Cross-Platform Mobile Development — Dart & Flutter Programming Training",
+    "Full-Stack Web Backend — Django & Flask Web Architecture Frameworks",
+    "Modern JavaScript — ECMAScript ES6 Certification",
+    "Database Systems — MySQL Oracle Academy Certified",
   ];
   const hacks = [
     "GirlScript Summer of Code (GSSoC) 2026 — Contributor (Selected among 35,000+)",
